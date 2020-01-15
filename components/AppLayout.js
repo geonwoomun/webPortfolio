@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Icon } from 'antd';
 
 const MenuBar = styled.div`
   width: 100%;
@@ -17,8 +16,12 @@ const MenuBar = styled.div`
       display : flex;
       justify-content : space-between;
       width : 300px;
+      margin : 0 10px;
       & a {
           color : white;
+          text-decoration : none;
+          text-transform : uppercase;
+          margin: 10px;
       }
       & a:hover{
           color : skyblue;
@@ -41,9 +44,11 @@ const AppLayout = ({ children }) => {
             Mun`s Web Portfolio
           </div>
           <div className="buttonBox">
-            <a href = "#"><Icon style ={{fontSize : "30px"}}type="idcard" theme="filled" /></a>
-            <a href="#"><Icon style ={{fontSize : "30px"}} type="project" theme="filled" /></a>
-            <a href="#"><Icon style ={{fontSize : "30px"}} type="github" theme="filled" /></a>
+            <a href = "#">about</a>
+            <a href="#">skill</a>
+            <a href="#">project</a>
+            <a href="#">github</a>
+            <a href="#">contact</a>
           </div>
       </MenuBar>
       {children}
