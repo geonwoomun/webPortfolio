@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 const MainBox = styled.div`
+    top : 10vh;
     position : relative;
     width : 100%;
     height : 90vh;

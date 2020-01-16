@@ -2,8 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 const MenuBar = styled.div`
+  position : fixed;
+  background : black;
+  z-index : 2;
+  top : 0;
   width: 100%;
-  height: 100px;
+  height: 10vh;
   border-bottom : 1px solid white;
   display : flex;
   justify-content : space-between;
@@ -14,8 +18,7 @@ const MenuBar = styled.div`
   }
   & .buttonBox {
       display : flex;
-      justify-content : space-between;
-      width : 300px;
+      width : 400px;
       margin : 0 10px;
       & a {
           color : white;
@@ -30,6 +33,28 @@ const MenuBar = styled.div`
 `;
 
 const AppLayout = ({ children }) => {
+  const onNaviClick = (type) => (e) => {
+    const height = document.documentElement.clientHeight;
+    const vh = document.documentElement.clientHeight / 100;
+    let n;
+    if(type =="home"){
+      n = 0;
+    }else if(type === "about"){
+      n = 1;
+    }else if(type === "skill"){
+      n = 2;
+    }else if(type === "project"){
+      n = 3;
+    }else if(type === "github"){
+      n = 4;
+    }else if(type === "contact"){
+      n = 5;
+    }
+    window.scroll({
+      top : n * height - 10 * vh,
+      behavior : 'smooth'
+    })
+  };
   return (
     <>
       <style jsx global>{`
@@ -41,14 +66,14 @@ const AppLayout = ({ children }) => {
       `}</style>
       <MenuBar>
           <div>
-            Mun`s Web Portfolio
+            <a onClick={onNaviClick("home")}>Mun`s Web Portfolio</a>
           </div>
           <div className="buttonBox">
-            <a href = "#">about</a>
-            <a href="#">skill</a>
-            <a href="#">project</a>
-            <a href="#">github</a>
-            <a href="#">contact</a>
+            <a onClick={onNaviClick("about")}>about</a>
+            <a onClick={onNaviClick("skill")}>skill</a>
+            <a onClick={onNaviClick("project")}>project</a>
+            <a onClick={onNaviClick("github")}>github</a>
+            <a onClick={onNaviClick("contact")}>contact</a>
           </div>
       </MenuBar>
       {children}

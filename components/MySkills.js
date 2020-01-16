@@ -57,7 +57,9 @@ const skill = {
     }
   ]
 };
-
+const SkillTitle = styled.div`
+  color : white;
+`;
 const SkillBox = styled.div`
     display : flex;
     color : white;
@@ -75,7 +77,10 @@ const SkillBox = styled.div`
 
 const MySkills = () => {
   return (
-    <div>
+    <div style={{height : "90vh", width : "100%"}}>
+      <SkillTitle>
+        My Skills
+      </SkillTitle>
       <SkillBox>
         <span>language</span>
         {skill.language.map(v => {
