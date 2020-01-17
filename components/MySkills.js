@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useEffect, useRef} from "react";
 import styled from 'styled-components';
 
-const skill = {
+const skills = {
   language: [
     {
       name: "html",
@@ -57,16 +57,24 @@ const skill = {
     }
   ]
 };
+const SkillWrapper = styled.div`
+  height : 90vh;
+  width : 100%;
+`;
 const SkillTitle = styled.div`
   color : white;
 `;
 const SkillBox = styled.div`
     display : flex;
+    width : 80%;
     color : white;
     text-align : center;
+    & > div {
+      flex : 1;
+    }
     & img {
-        width : 150px;
-        height : 150px;
+        width : 18vh;
+        height : 18vh;
         border-radius : 50%;
         margin : auto;
         object-fit : cover;
@@ -75,18 +83,22 @@ const SkillBox = styled.div`
     }
 `;
 
-const MySkills = () => {
+const MySkills = ({skill}) => {
+  const skillRef = useRef();
+  useEffect(() => {
+    skill.setSkillRefs(skillRef);
+  }, [skillRef]);
   return (
-    <div style={{height : "90vh", width : "100%"}}>
+    <SkillWrapper id="skill" ref={skillRef}>
       <SkillTitle>
         My Skills
       </SkillTitle>
       <SkillBox>
         <span>language</span>
-        {skill.language.map(v => {
+        {skills.language.map(v => {
           return (
             <div key ={v.name}>
-              <img src={`/static/${v.imgPath}`} />
+              <img src={`/${v.imgPath}`} />
               <div>{v.name}</div>
             </div>
           );
@@ -94,10 +106,10 @@ const MySkills = () => {
       </SkillBox>
       <SkillBox>
         <span>library</span>
-        {skill.library.map(v => {
+        {skills.library.map(v => {
           return (
             <div key ={v.name}>
-              <img src={`/static/${v.imgPath}`} />
+              <img src={`/${v.imgPath}`} />
               <div>{v.name}</div>
             </div>
           );
@@ -105,16 +117,16 @@ const MySkills = () => {
       </SkillBox>
       <SkillBox>
         <span>etc</span>
-        {skill.etc.map(v => {
+        {skills.etc.map(v => {
           return (
             <div key ={v.name}>
-              <img src={`/static/${v.imgPath}`} />
+              <img src={`/${v.imgPath}`} />
               <div>{v.name}</div>
             </div>
           );
         })}
       </SkillBox>
-    </div>
+    </SkillWrapper>
   );
 };
 

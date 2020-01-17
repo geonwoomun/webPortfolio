@@ -9,19 +9,15 @@ import MySkills from '../components/MySkills';
 const HoemBox = styled.div`
     margin : 0;
     padding : 0;
-    display : flex;
-    flex-direction : column;
-    justify-content : center;
-    align-items : center;
 `;
-const Home = () => {
+const Home = ({about, skill, github, contact, project}) => {
     return (
         <HoemBox>
             <Main/>
-            <Intro/>
-            <MySkills/>
-            <Project/>
-            <Github/>
+            <Intro about={about}/>
+            <MySkills skill={skill}/>
+            <Project project={project}/>
+            <Github github={github}/>
         </HoemBox>
     );
 };

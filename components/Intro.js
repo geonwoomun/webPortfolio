@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useRef, useEffect} from "react";
 import styled from "styled-components";
 
 const IntroBox = styled.div`
@@ -7,7 +7,7 @@ const IntroBox = styled.div`
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  height : 110vh;
+  height : 90vh;
   color : white;
   & .aboutBox {
     display : flex;
@@ -24,9 +24,13 @@ const IntroBox = styled.div`
   }
 `;
 
-const Intro = () => {
+const Intro = ({about}) => {
+  const aboutRef = useRef();
+  useEffect(() => {
+    about.setAboutRefs(aboutRef);
+  }, [aboutRef]);
   return (
-    <IntroBox>
+    <IntroBox id ="about" ref={aboutRef}>
       <div>
         About Me
       </div>

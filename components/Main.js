@@ -2,10 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 const MainBox = styled.div`
-    top : 10vh;
-    position : relative;
+    position: relative;
     width : 100%;
-    height : 90vh;
+    height : 100vh;
     background : grey;
     z-index : 1;
     display : flex;
@@ -16,12 +15,12 @@ const MainBox = styled.div`
 
     & ::before {
         content : "";
-        background : url('/static/background.jpg') no-repeat center;
+        background : url('/background.jpg') no-repeat center;
         background-size : cover;
         position : absolute;
         filter:alpha(opacity=50);
         width: 100%;
-        height: 90vh;
+        height: 100vh;
         opacity : 0.5 !important;
         z-index : -1;
     }
@@ -44,7 +43,7 @@ const Main = () => {
     }, []);
     
     return (
-        <MainBox ref = {divRef}>
+        <MainBox ref = {divRef} id="main">
         </MainBox>
     );
 };

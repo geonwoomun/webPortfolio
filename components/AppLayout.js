@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 
 const MenuBar = styled.div`
@@ -32,26 +32,26 @@ const MenuBar = styled.div`
   }
 `;
 
-const AppLayout = ({ children }) => {
+const AppLayout = ({ children, refs }) => {
   const onNaviClick = (type) => (e) => {
-    const height = document.documentElement.clientHeight;
     const vh = document.documentElement.clientHeight / 100;
     let n;
     if(type =="home"){
       n = 0;
     }else if(type === "about"){
-      n = 1;
+      n = refs.aboutRefs.current.offsetTop;
     }else if(type === "skill"){
-      n = 2;
+      n = refs.skillRefs.current.offsetTop;
     }else if(type === "project"){
-      n = 3;
+      n = refs.projectRefs.current.offsetTop;
     }else if(type === "github"){
-      n = 4;
+      n = refs.githubRefs.current.offsetTop;
     }else if(type === "contact"){
-      n = 5;
+      n = refs.contactRefs.current.offsetTop;
     }
     window.scroll({
-      top : n * height - 10 * vh,
+      top : n - 10*vh,
+      // top : n * (height - 8 * vh),
       behavior : 'smooth'
     })
   };

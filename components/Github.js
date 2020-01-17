@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useRef} from "react";
 import styled from "styled-components";
 
 const GithubBox = styled.div`
@@ -22,11 +22,15 @@ const GithubBox = styled.div`
     }
 `;
 
-const Github = () => {
+const Github = ({github}) => {
+  const githubRef = useRef();
+  useEffect(() => {
+    github.setGithubRefs(githubRef);
+  }, [githubRef]);
   return (
-    <GithubBox>
+    <GithubBox id ="github" ref={githubRef}>
       <div>Contact</div>
-      <img src="/static/github.png"/>
+      <img src="/github.png"/>
       <div>
         최대한 1일 1 커밋을 지킬려고 노력하는 개발자!<br/>
         어제 보다 오늘이 더 나은 개발자
