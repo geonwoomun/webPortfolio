@@ -18,8 +18,7 @@ const MenuBar = styled.div`
   }
   & .buttonBox {
       display : flex;
-      width : 400px;
-      margin : 0 10px;
+      margin-left : auto;
       & a {
           color : white;
           text-decoration : none;
@@ -44,8 +43,6 @@ const AppLayout = ({ children, refs }) => {
       n = refs.skillRefs.current.offsetTop;
     }else if(type === "project"){
       n = refs.projectRefs.current.offsetTop;
-    }else if(type === "github"){
-      n = refs.githubRefs.current.offsetTop;
     }else if(type === "contact"){
       n = refs.contactRefs.current.offsetTop;
     }
@@ -61,7 +58,7 @@ const AppLayout = ({ children, refs }) => {
         body {
           margin: 0;
           padding: 0;
-          background : black;
+          background : #f1f2f6;
         }
       `}</style>
       <MenuBar>
@@ -72,7 +69,6 @@ const AppLayout = ({ children, refs }) => {
             <a onClick={onNaviClick("about")}>about</a>
             <a onClick={onNaviClick("skill")}>skill</a>
             <a onClick={onNaviClick("project")}>project</a>
-            <a onClick={onNaviClick("github")}>github</a>
             <a onClick={onNaviClick("contact")}>contact</a>
           </div>
       </MenuBar>

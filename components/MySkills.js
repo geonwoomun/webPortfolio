@@ -4,14 +4,6 @@ import styled from 'styled-components';
 const skills = {
   language: [
     {
-      name: "html",
-      imgPath: "html.png"
-    },
-    {
-      name: "css",
-      imgPath: "css.png"
-    },
-    {
       name: "javascript",
       imgPath: "javascript.png"
     },
@@ -24,7 +16,15 @@ const skills = {
       imgPath: "java.png"
     }
   ],
-  library: [
+  web: [
+    {
+      name: "html",
+      imgPath: "html.png"
+    },
+    {
+      name: "css",
+      imgPath: "css.png"
+    },
     {
       name: "react",
       imgPath: "react.png"
@@ -32,6 +32,10 @@ const skills = {
     {
       name: "express",
       imgPath: "express.png"
+    },
+    {
+      name : "flask",
+      imgPath : "flask.png"
     }
   ],
   etc: [
@@ -62,20 +66,21 @@ const SkillWrapper = styled.div`
   width : 100%;
 `;
 const SkillTitle = styled.div`
-  color : white;
+  color : black;
+  font-size : calc(25px + 1vw);
 `;
 const SkillBox = styled.div`
     display : flex;
     width : 80%;
-    color : white;
+    color : black;
     text-align : center;
     & > div {
       flex : 1;
     }
     & img {
-        width : 18vh;
-        height : 18vh;
-        border-radius : 50%;
+        width : 20vh;
+        height : 20vh;
+        border-radius : 20px;
         margin : auto;
         object-fit : cover;
         border : 2px solid #2c3e50;
@@ -105,8 +110,8 @@ const MySkills = ({skill}) => {
         })}
       </SkillBox>
       <SkillBox>
-        <span>library</span>
-        {skills.library.map(v => {
+        <span>web</span>
+        {skills.web.map(v => {
           return (
             <div key ={v.name}>
               <img src={`/${v.imgPath}`} />

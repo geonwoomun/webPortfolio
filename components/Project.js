@@ -15,7 +15,7 @@ const projects = [
   },
   {
     title: "한이음 기부플랫폼",
-    what: "DA를 설계하여 제출 및 발표하는 대회",
+    what: "현직자 멘토와 같이 멘토링을 하며 블록체인 기반 기부플랫폼을 만들어 봄",
     skill: [
       "react",
       "express",
@@ -32,7 +32,7 @@ const projects = [
   },
   {
     title: "사진공유판매 사이트",
-    what: "연합동아리 DND에서 만든 작품",
+    what: "연합동아리 DND에서 만든 사진 공유, 판매 사이트",
     skill: ["react", "express", "aws S3", "aws ec2", "aws mariaDB"],
     type: "team",
     myRole:
@@ -42,7 +42,7 @@ const projects = [
   },
   {
     title: "사용자에게 원하는 컨텐츠를 추천해주는 시스템",
-    what: "ai 아이디어경진대회를 하며 만든 웹앱",
+    what: "ai 아이디어경진대회를 하며 만든 웹",
     skill: ["php", "jquery", "konlpy", "TF-IDF", "mariaDB"],
     type: "team",
     myRole:
@@ -64,10 +64,14 @@ const projects = [
 const ProjectWrapper = styled.div`
   width: 100%;
   height: 90vh;
-  color: white;
+  color: black;
+  & .projectTitle {
+    font-size : calc(20px + 0.5vw);
+  }
   & .projectBox {
     width : 80%;
-    height : 100vh;
+    height : 70vh;
+    font-size: calc(12px + 0.5vw);
   }
   & .imgBox {
       display : flex;
@@ -76,8 +80,15 @@ const ProjectWrapper = styled.div`
   & .imgBox img {
       flex : 1;
       width : 40%;
-      height: 60vh;
-      max-width: 500px;
+      height: 50vh;
+      max-width: 400px;
+  }
+  & .gitIcon {
+    font-size: 5vh;
+    cursor: pointer;
+  }
+  & .gitIcon:hover{
+    color : skyblue;
   }
   & a {
     text-decoration: none;
@@ -94,7 +105,7 @@ const Project = ({project}) => {
   }, []);
   return (
     <ProjectWrapper id="project" ref={projectRef}>
-      <div>
+      <div className = "projectTitle">
         <h2>프로젝트</h2>
       </div>
       <Slick
@@ -114,8 +125,7 @@ const Project = ({project}) => {
               <div>사용기술 : {v.skill}</div>
               <div>프로젝트단위 : {v.type}</div>
               <div>나의 역할 : {v.myRole}</div>
-              <div>github : {v.github}</div>
-              <Icon className ="gitIcon" type="github" onClick={openGitHub(v.github)} />
+              <div>github : {v.github} <Icon className ="gitIcon" type="github" onClick={openGitHub(v.github)} /></div>
               <div className="imgBox">
               {v.imgPath.map((i, idx) => (
                 <img src={`/project/${i}.png`} key={idx} />
