@@ -12,6 +12,12 @@ const MenuBar = styled.div`
   display : flex;
   justify-content : space-between;
   align-items : center;
+  & a {
+    cursor: pointer;
+  }
+  & a:hover{
+    color : skyblue;
+  }
   & div {
       color : white;
       margin : 0 20px;
