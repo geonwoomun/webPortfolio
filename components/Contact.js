@@ -25,11 +25,13 @@ const ContactBox = styled.div`
     width : 100%;
     justify-content : space-around;
     align-items : center;
+    font-size : calc(12px + 1vw);
   }
 
   & button {
-    width: 300px;
-    height: 40px;
+    margin-top: 10px;
+    width: 80%;
+    height: 6vh;
     background: black;
     color: white;
     border: none;

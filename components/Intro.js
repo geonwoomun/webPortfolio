@@ -34,6 +34,9 @@ const IntroBox = styled.div`
     font-size: 4vw;
     letter-spacing : 1px;
   }
+  & li {
+    margin : 1vh 0;
+  }
 `;
 
 const Intro = ({about}) => {
@@ -53,6 +56,7 @@ const Intro = ({about}) => {
           <li>도전정신이 강한</li>
           <li>열심히 하는</li>
           <li>성실한 개발자</li>
+          <li>자격증 : 정보처리기사, DASP, SQLD</li>
         </ul>
       </div>
     </IntroBox>

@@ -74,6 +74,7 @@ const SkillBox = styled.div`
     width : 80%;
     color : black;
     text-align : center;
+    font-size : calc(10px + 1vw);
     & > div {
       flex : 1;
     }

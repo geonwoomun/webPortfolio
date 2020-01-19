@@ -84,7 +84,7 @@ const ProjectWrapper = styled.div`
       max-width: 400px;
   }
   & .gitIcon {
-    font-size: 5vh;
+    font-size: 4vh;
     cursor: pointer;
   }
   & .gitIcon:hover{
@@ -122,7 +122,7 @@ const Project = ({project}) => {
             <div className= "projectBox" key={index}>
               <div>프로젝트명 : {v.title}</div>
               <div>{v.what}</div>
-              <div>사용기술 : {v.skill}</div>
+              <div>사용기술 : {v.skill.join(', ')}</div>
               <div>프로젝트단위 : {v.type}</div>
               <div>나의 역할 : {v.myRole}</div>
               <div>github : {v.github} <Icon className ="gitIcon" type="github" onClick={openGitHub(v.github)} /></div>
