@@ -5,7 +5,6 @@ const IntroBox = styled.div`
   display: flex;
   flex-direction : column;
   width: 100%;
-  height : 90vh;
   color : black;
   & .aboutTitle {
     margin-bottom: auto;

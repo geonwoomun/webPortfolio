@@ -1,8 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
+import { Icon } from 'antd';
 import styled from "styled-components";
 
 const ContactBox = styled.div`
   color: black;
+  background: white;
+  margin-top: 30px;
   width: 100%;
   height: 90vh;
   display: flex;
@@ -10,10 +13,11 @@ const ContactBox = styled.div`
   align-items: center;
   & .contactTitle {
     font-size: calc(25px + 1vw);
+    font-weight: bold;
     margin-right: auto;
     margin-bottom : auto;
   }
-  & img {
+  & .myGithub {
     width: 50vw;
     height: 50vh;
     min-width: 450px;
@@ -27,19 +31,14 @@ const ContactBox = styled.div`
     align-items : center;
     font-size : calc(12px + 1vw);
   }
-
-  & button {
-    margin-top: 10px;
-    width: 80%;
-    height: 6vh;
-    background: black;
-    color: white;
-    border: none;
-    border-radius: 8px;
+  & .gitIcon {
+    font-size: 10vh;
   }
-  & button:hover {
-    background: skyblue;
-    color: white;
+  & .velog {
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    margin : 0 20px;
   }
 `;
 
@@ -48,20 +47,21 @@ const Contact = ({ contact }) => {
   useEffect(() => {
     contact.setContactRefs(contactREf);
   }, [contactREf]);
+  const openWeb = useCallback(address => () => {
+    window.open(address);
+  }, []);
   return (
     <ContactBox id="github" ref={contactREf}>
       <div className="contactTitle">Contact</div>
       <div className="contactBox">
-        <img src="/github.png" />
+        <img className = "myGithub" src="/github.png" />
         <div>
-          <div>
-            열심히 노력하는 개발자!
-            <br />
-            어제 보다 오늘이 더 나은 개발자!
-            <br />
-            연락을 원한다면!
-          </div>
-          <button>CLICK ME!</button>
+          ansejrrhkd@gmail.com
+          <br/>
+          <Icon className ="gitIcon" type="github" onClick={openWeb('https://github.com/geonwoomun')} />
+          <a onClick={openWeb('https://velog.io/@ansrjsdn')}>
+            <img className="velog" src={'/velog.png'} alt="velog"></img>
+          </a>
         </div>
       </div>
     </ContactBox>

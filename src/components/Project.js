@@ -58,12 +58,29 @@ const projects = [
     myRole: "all",
     imgPath: ["lol1", "lol2"],
     github: "https://github.com/geonwoomun/lolMatch"
+  },
+  {
+    title: "Hello20Thon",
+    what: "온라인 해커톤 Hello20Thon에 참가하여 만든 운동관리 서비스",
+    skill: ["react-hooks", "redux", "redux-saga", "Next.js"],
+    type: "team",
+    myRole: "frontend",
+    imgPath: ["Hello20ThonPrize", "Hello20ThonMain"],
+    github: "https://github.com/geonwoomun/Hello20Thon"
+  },
+  {
+    title: "우리 동네 작은 도움 서비스",
+    what: "DND 2기를 참가해서 만든 주변에서 도움을 주고받게 할 수 있는 플랫폼",
+    skill: ["react-hooks", "redux", "redux-saga", "Next.js", "Spring Boot", "MySQL"],
+    type: "team",
+    myRole: "frontend",
+    imgPath: ["DabeenCertipicate", "DabeenMain"],
+    github: "https://github.com/geonwoomun/DND2_Dabeen"
   }
 ];
 
 const ProjectWrapper = styled.div`
   width: 100%;
-  height: 90vh;
   color: black;
   & .projectTitle {
     font-size : calc(20px + 0.5vw);
